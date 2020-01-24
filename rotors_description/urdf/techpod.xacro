@@ -115,9 +115,9 @@
   </xacro:property>
 
   <!-- Included URDF Files -->
-  <xacro:include filename="$(find rotors_description)/urdf/fixed_wing_base.xacro" />
+  <xacro:include filename="$(find rotors_description)/urdf/fixed_wing_base.xacro" />-->
 
-  <!-- Instantiate fixed_wing_base_macro once -->
+  <!-- Instantiate fixed_wing_base_macro once-->
   <xacro:fixed_wing_base_macro
     robot_namespace="${namespace}"
     mass="${mass_fuselage}"
@@ -132,7 +132,7 @@
     is_input_joystick="$(arg is_input_joystick)">
     <origin xyz="0 0 0" rpy="0 0 0" />
     <xacro:insert_block name="body_inertia" />
-  </xacro:fixed_wing_base_macro>
+  </xacro:fixed_wing_base_macro> 
 
   <!-- Instantiate the ailerons -->
   <xacro:control_surface
@@ -265,5 +265,19 @@
     <origin xyz="-0.025 0 0.15" rpy="0 ${-0.5*PI} 0" />
     <xacro:insert_block name="propeller_inertia" />
   </xacro:propeller>
+  
+  <xacro:wind_plugin_macro
+  	namespace="${namespace}"
+		xyz_offset="0 0 0"
+		wind_direction="1 0 0"
+		wind_force_mean="0.0"
+		wind_gust_direction="0 1 0"
+		wind_gust_duration="0.0"
+		wind_gust_start="0.0"
+		wind_gust_force_mean="0.0"
+		wind_speed_mean="5.0"
+		use_custom_static_wind_field="true"
+		custom_wind_field_path="$(find rotors_gazebo)/models/hemicyl/wind_field_hemicyl.txt">
+  </xacro:wind_plugin_macro>
 
 </robot>
