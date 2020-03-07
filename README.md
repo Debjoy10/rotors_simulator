@@ -1,3 +1,5 @@
+###### Update 1: Added rotors_gazebo/launch/mav_base_wind.launch for training which imports from /rotors_description /urdf/wind_base_firefly.xacro which uses as input /models/hemicyl/wind_field_hemicyl.txt wind field mesh values (Changeable file). [(i)Commands work?, (ii)World model change]
+
 RotorS
 ===============
 
